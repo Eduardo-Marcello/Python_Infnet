@@ -25,6 +25,7 @@ while not terminou:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             x, y = pygame.mouse.get_pos()
+            print(x, y)
             desenho_estrela(BRANCO, x, y)
         if event.type == pygame.QUIT:
             terminou = True
