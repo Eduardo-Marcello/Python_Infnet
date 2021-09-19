@@ -18,7 +18,6 @@ def separar_par_impar(tuplar_def):
             lista_def.append(tuplar_def[i])
         elif tuplar_def[i] % 2 == 0:
             lista_tupla.append(tuplar_def[i])
-
     return lista_def, tuple(lista_tupla)
 
 

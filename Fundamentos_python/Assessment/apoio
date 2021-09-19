@@ -1,0 +1,12 @@
+                if len(list_rect) > 1:
+                    for i in range(len(list_rect)):
+                        if pygame.Rect.colliderect(rect.area, list_rect[i].area):
+                            # list_rect.remove(rect)
+                            # list_rect.pop(i)
+
+                                        for i in range(len(rect.list)):
+                if rect.area.colliderect(rect.list[i].area):
+                    print(rect.area)
+            # for rect in rect.list:
+            #     if rect.area.colliderect(rect.list):
+            #         print(x)
