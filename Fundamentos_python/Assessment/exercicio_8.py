@@ -39,17 +39,12 @@ class Rect(pygame.Rect):
         pygame.draw.rect(tela_def, self.cor, self.area)
 
 
-def collisions(rect_def, rect_2_def):
-    print(rect_def.right)
-    if (rect_def.left >= rect_2_def.left or rect_def.right <= rect_2_def.right) and (
-            rect_def.top >= rect_2_def.top or rect_def.top <= rect_2_def.top):
-        return True
-    return False
-
-
 list_rect = []
 terminou = False
 while not terminou:
+    tela.fill(PRETO)
+    for r in list_rect:
+        r.draw_rect(tela)
     circle = Circle()
     circle.draw_circle(tela)
     circle.draw_text()
@@ -61,23 +56,11 @@ while not terminou:
                 rect = Rect()
                 rect.draw_rect(tela)
                 list_rect.append(rect)
-                rect.left = rect.x_rct - rect.largura
-                rect.right = rect.x_rct + rect.largura
-                rect.top = rect.y_rct - rect.altura
-                rect.bottom = rect.y_rct + rect.altura
-                if len(list_rect) > 1:
-                    for rect_2 in list_rect:
-                        rect_2.left = rect_2.x_rct - rect_2.largura
-                        rect_2.right = rect_2.x_rct + rect_2.largura
-                        rect_2.top = rect_2.y_rct - rect_2.altura
-                        rect_2.bottom = rect_2.y_rct + rect_2.altura
-                        if collisions(rect, rect_2):
-                            list_rect.remove(rect_2)
+                for rect_2 in list_rect:
+                    if rect_2 is not rect and pygame.Rect.colliderect(rect_2.area, rect.area):
+                        list_rect.remove(rect_2)
+                        if rect in list_rect:
                             list_rect.remove(rect)
-                            print("Removido")
-                        if rect.colliderect(rect_2):
-                            list_rect.remove(rect)
-                            print("Funcionou")
         if event.type == pygame.QUIT:
             terminou = True
         pygame.display.update()
