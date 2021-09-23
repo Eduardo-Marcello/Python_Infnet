@@ -29,7 +29,6 @@ class Circle:
             if event.key == ord('s'):
                 self.y_circ += 7
 
-
     def draw_circle(self, tela_def):
         return pygame.draw.circle(tela_def, self.cor, (self.x_circ, self.y_circ), self.rad)
 
@@ -57,9 +56,9 @@ list_rect = []
 terminou = False
 while not terminou:
     tela.fill(PRETO)
-    for r in list_rect:
+    for i, r in enumerate(list_rect):
         if r.area.collidepoint(circle.x_circ, circle.y_circ):
-            list_rect.remove(r)
+            list_rect.pop(i)
         else:
             r.draw_rect(tela)
     for event in pygame.event.get():
