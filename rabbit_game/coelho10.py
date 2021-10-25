@@ -26,7 +26,7 @@ def configuraSom():
     global hitSom, inimigoSom, tiroSom
 
     filepath = os.path.dirname(__file__)
-    hitSom = pygame.mixer.Sound(os.path.join(filepath,"resources/audio/explode.wav"))
+    hitSom = pygame.mixer.Sound(os.path.join(filepath, "resources/audio/explode.wav"))
     inimigoSom = pygame.mixer.Sound(os.path.join(filepath, "resources/audio/enemy.wav"))
     tiroSom = pygame.mixer.Sound(os.path.join(filepath, "resources/audio/shoot.wav"))
     hitSom.set_volume(0.05)
