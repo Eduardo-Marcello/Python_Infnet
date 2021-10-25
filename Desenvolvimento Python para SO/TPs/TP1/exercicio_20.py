@@ -5,3 +5,11 @@ c) o total de armazenamento em GB e
 d) o armazenamento disponível em GB."""""
 import psutil
 
+list = psutil.disk_partitions()
+for i in list:
+    disk_info = psutil.disk_usage(path=i[0])
+    print(f"Device: {i[0]}")
+    print(f"File system type: {i[2]}")
+    print(f"Total size disk: {round(disk_info[0] / (1024 * 1024 * 1024), 2)} GB")
+    print(f"Free size disk: {round(disk_info[2] / (1024 * 1024 * 1024), 2)} GB")
+    print("------------------------\n")

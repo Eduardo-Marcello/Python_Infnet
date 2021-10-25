@@ -2,4 +2,7 @@
 memória de paginação (swap) existem no computador."""""
 import psutil
 
-print(psutil.swap_memory())
+swap_mem = psutil.swap_memory().total
+main_mem = psutil.virtual_memory().total
+print(f"Main memory: {round(main_mem / (1024 * 1024 * 1024), 2)} GB")
+print(f"Swap memory: {round(swap_mem / (1024 * 1024 * 1024), 2)} GB")
