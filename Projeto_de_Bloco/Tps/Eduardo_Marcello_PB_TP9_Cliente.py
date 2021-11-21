@@ -447,12 +447,10 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 flag = 1
 
 try:
-    # Tenta se conectar ao servidor
     s.connect((socket.gethostname(), 9999))
 except Exception as erro:
     print(str(erro))
-    sys.exit(1)  # Termina o programa
-
+    sys.exit(1)
 while flag == 1:
     option = msgMenu()
     flag = menuPrincipal(option)

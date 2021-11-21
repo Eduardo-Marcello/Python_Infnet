@@ -1,12 +1,5 @@
-import pygame
 import psutil
 import cpuinfo
-import os
-import time
-import sched
-import subprocess
-import platform
-import nmap
 import socket
 import pickle
 
@@ -75,6 +68,6 @@ while True:
     msg = s_cliente.recv(1024)
     flag = options()
     if flag != 1:
-        s_cliente.close()
-        break
+       s_cliente.close()
+       break
 s_servidor.close()
