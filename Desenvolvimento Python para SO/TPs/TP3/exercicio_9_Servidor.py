@@ -14,7 +14,7 @@ while True:
     if 'sair' == msg.decode('utf-8').lower():
         print(f"Fechando conexão com:  {str(cliente)} ...")
         cliente.close()
-        break
+        # break
     elif '?' in msg.decode('utf-8'):
         if 'disco' in msg.decode('utf-8'):
             msg = []

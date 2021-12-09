@@ -6,15 +6,11 @@ s_cliente = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 s_cliente.settimeout(5)
 dest = (socket.gethostname(), 9090)
 
-
 user_input = input("Would you like to receive the memory (free and used) percentage?\nAnswer [Sim/Não]: ")
-#awsner(user_input)
 if user_input.lower() == 'sim':
     attempts = 1
     acknowledged = False
     msg = 'memory'
-    #client(attempts, acknowledged, msg)
-
     while (attempts <= 5) and (not acknowledged):
         s_cliente.sendto(msg.encode('utf-8'), dest)
         try:
@@ -27,18 +23,10 @@ if user_input.lower() == 'sim':
         elif user_input.lower() == 'não' or user_input.lower() == 'nao':
             print("Ending the program...")
             sys.exit(1)
-        else:
-            user_input = input("Try again [Sim/Não]: ")
         s_cliente.sendto(user_input.encode('utf-8'), dest)
     answer_list = pickle.loads(msg_list)
-    if acknowledged == True:
+    if acknowledged:
         print(f"Used memory: {answer_list[1]} GB\nFree memory: {answer_list[2]} GB")
-
 elif user_input.lower() == 'não' or user_input.lower() == 'nao':
     print("Ending the program...")
-
-else:
-    user_input = input("Try again [Sim/Não]: ")
-    #awsner(user_input)
-
 s_cliente.close()
