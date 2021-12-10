@@ -9,7 +9,7 @@ import os
 
 
 def file_write(dir, list_arq_new):
-    new_file = open('list_arqAndValues.txt', 'w')
+    new_file = open('list_filesAndSizes.txt', 'w')
     for i in list_arq_new:
         path = dir + str(i)
         new_file.write(f"{i}    {os.stat(path).st_size} \n")
